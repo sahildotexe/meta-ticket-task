@@ -11,5 +11,5 @@ export async function POST(request: Request) {
     const body = await request.json()
     const { eventName, organizerWalletAddress, startDatetime, location, description } = body
     const newEvent = await postNewEvent(eventName, organizerWalletAddress, startDatetime, location, description)
-    return NextResponse.json(newEvent)
+    return NextResponse.json({code:201, message: "Event created successfully", data: newEvent})
 }
